@@ -10,8 +10,8 @@ function SearchResults(props) {
                 <thead>
                     <tr>
                         <th>Photo</th>
-                        <th onClick={props.handleSortClick}>Name</th>
-                        <th onClick={props.handleSortClick}>Location</th>
+                        <th>Name</th>
+                        <th>Location</th>
                         <th>Phone</th>
                         <th>Email</th>
                     </tr>

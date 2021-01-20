@@ -14,7 +14,7 @@ function Search(props) {
                     id="search"
                     placeholder="Type an employee's name to search"
                 />
-                <Button variant="dark" onClick={props.handleFomSubmit}>Submit</Button>
+                <Button variant="dark" onClick={props.handleFormSubmit}>Submit</Button>
                 </div>
         </form>
     )
