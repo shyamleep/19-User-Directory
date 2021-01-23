@@ -7,14 +7,14 @@ function Search(props) {
         <form className="search">
             <div>
                 <input
-                    value={props.searchEntry}
+                    // value={props.searchEntry}
                     onChange={props.handleInputChange}
                     type="text"
                     className="form-control"
                     id="search"
                     placeholder="Type an employee's name to search"
                 />
-                <Button variant="dark" onClick={props.handleFormSubmit}>Submit</Button>
+                {/* <Button variant="dark" onClick={props.handleFormSubmit}>Submit</Button> */}
                 </div>
         </form>
     )

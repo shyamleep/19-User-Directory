@@ -17,8 +17,8 @@ function SearchResults(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {props.employeeList.map((employee) => (
-                        <tr>
+                    {props.employeeList.map((employee, i) => (
+                        <tr key={i}>
                             <td><img src={employee.picture.medium} alt={employee.name.first}/></td>
                             <td>{employee.name.first} {employee.name.last}</td>
                             <td>{employee.location.city} {employee.location.state}</td>
