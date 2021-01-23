@@ -1,9 +1,9 @@
-import logo from "./logo.svg";
+import React from "react";
 import "./App.css";
-import api from "../utils/api";
-import Search from "../src/components/Search";
-import SearchResults from "../src/components/SearchResults";
-import Wrapper from "../src/components/Wrapper"
+import api from "./utils/api.js";
+import Search from "../src/components/Search/Search.js";
+import SearchResults from "../src/components/SearchResults/SearchResults.js";
+import Wrapper from "../src/components/Wrapper/Wrapper.js"
 
 class App extends React.Component {
 state = {
@@ -17,7 +17,7 @@ componentDidMount () {
     .then(res => {
       const employees = res.data.results;
       this.setState({
-        allUsers: employees,
+        allEmployees: employees,
         filteredEmployees: employees
       })
     })
@@ -33,12 +33,11 @@ render() {
   <div>
     <Wrapper>
       <Search searchEntry={this.state.searchEntry} handleInputChange={e => this.handleInputChange(e)}/>
-      <SearchResults />
+      <SearchResults employeeList={this.state.allEmployees}/>
     </Wrapper>
   </div>
   
   )}
 };
-
 
 export default App;
