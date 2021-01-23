@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 
 function Search(props) {
     return (
-        <form className="search">
+        <form className="search" onSubmit={(e) => e.preventDefault}>
             <div>
                 <input
                     // value={props.searchEntry}

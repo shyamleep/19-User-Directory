@@ -3,8 +3,8 @@ import "./App.css";
 import api from "./utils/api.js";
 import Search from "../src/components/Search/Search.js";
 import SearchResults from "../src/components/SearchResults/SearchResults.js";
-import Wrapper from "../src/components/Wrapper/Wrapper.js"
-import util from "util"
+import Wrapper from "../src/components/Wrapper/Wrapper.js";
+import util from "util";
 
 class App extends React.Component {
 state = {
@@ -40,11 +40,36 @@ handleFilter = (e) => {
 }
 
 
-handleInputChange = (e) => {
-  console.log(e.target.value)
-  console.log("handleinputchange")
-  const setStateSearch = util.promisify(this.setState({searchEntry: e.target.value}))
-  setStateSearch.then(this.handleFilter(e))
+// handleInputChange = async (e) => {
+//   console.log(e.target.value)
+//   console.log("handleinputchange")
+//   let promise = new Promise((resolve, reject) => {
+//     console.log("handleFilter!")
+//   const newFilteredEmployees = this.state.allEmployees.filter(this.firstNameSearch)
+//   this.setState({...this.state, newFilteredEmployees});
+//   });
+//   promise.then(function(result) {
+//     console.log(result)
+//   });
+
+  // const setStateSearch = util.promisify(() => this.setState({searchEntry: e.target.value}))
+  // const searchSet = await setStateSearch
+  // searchSet.then(this.handleFilter(e))
+
+
+handleInputChange = event => {
+  console.log(this)
+  console.log(event.target.value);
+  const filter = event.target.value;
+  const filteredList = this.state.allEmployees.filter(item => {
+    // merge data together, then see if user input is anywhere inside
+    let values = Object.values(item)
+      .join("")
+      .toLowerCase();
+    return values.indexOf(filter.toLowerCase()) !== -1;
+  });
+  console.log(this.state.filteredEmployees)
+  this.setState({ filteredEmployees: filteredList });
 }
 
 
